@@ -12,7 +12,7 @@ const Header: FC<HeaderProps> = ({}) => {
         <div className="font-semibold">Twitter</div>
       </div>
       <div>
-        <Button className="py-3 px-6 rounded-none">
+        <Button className="py-3 px-6 rounded-md">
           <PlusIcon className="mr-2 w-4 h-4" />
           Post a Job
         </Button>
