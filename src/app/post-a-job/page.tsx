@@ -2,7 +2,9 @@
 
 import CKEditor from "@/components/organisms/CKEditor";
 import FieldInput from "@/components/organisms/FieldInput";
+import InputBenefits from "@/components/organisms/InputBenefits";
 import InputSkills from "@/components/organisms/InputSkills";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -245,6 +247,17 @@ const PostJobPage: FC<PostJobPageProps> = ({}) => {
               editorLoaded={editorLoaded}
             />
           </FieldInput>
+
+          <FieldInput
+            title="Perks and Benefits"
+            subtitle="Encourage more people to apply by sharing the attractive rewards and benefits you offer your employees"
+          >
+            <InputBenefits form={form} />
+          </FieldInput>
+
+          <div className="flex justify-end">
+            <Button size="lg">Do a Review</Button>
+          </div>
         </form>
       </Form>
     </div>
