@@ -1,6 +1,7 @@
 "use client";
 
 import FieldInput from "@/components/organisms/FieldInput";
+import InputSkills from "@/components/organisms/InputSkills";
 import {
   Form,
   FormControl,
@@ -184,6 +185,13 @@ const PostJobPage: FC<PostJobPageProps> = ({}) => {
                 </FormItem>
               )}
             />
+          </FieldInput>
+
+          <FieldInput
+            title="Required Skills"
+            subtitle="Add required skills for the job"
+          >
+            <InputSkills form={form} name="requiredSkills" label="Add Skills" />
           </FieldInput>
         </form>
       </Form>
