@@ -15,6 +15,7 @@ import Link from "next/link";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { signIn } from "next-auth/react";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 
@@ -30,7 +31,21 @@ const SignInPage: FC<SignInPageProps> = ({}) => {
   const router = useRouter();
 
   const onSubmit = async (val: z.infer<typeof signInFormSchema>) => {
-    console.log(val);
+    const authenticated = await signIn("credentials", {
+      ...val,
+      redirect: false,
+    });
+
+    if (authenticated?.error) {
+      toast({
+        title: "Error",
+        description: "Email or Password maybe wrong",
+      });
+
+      return;
+    }
+
+    await router.push("/");
   };
 
   return (
